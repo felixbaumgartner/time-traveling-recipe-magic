@@ -13,35 +13,35 @@ const RecipeDisplay = ({ originalRecipe, transformedRecipe, selectedTimePeriod }
   const period = timePeriods.find(p => p.id === selectedTimePeriod) || timePeriods[0];
 
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 animate-fade-in">
-      <Card className="bg-white/80 border-aged">
-        <CardHeader>
-          <CardTitle className="text-ink">Modern Recipe</CardTitle>
-          <CardDescription className="text-ink/70">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 animate-fade-in">
+      <Card className="recipe-card">
+        <CardHeader className="pb-2">
+          <CardTitle className="text-ink text-xl text-left">Modern Recipe</CardTitle>
+          <CardDescription className="text-ink/70 text-left">
             Original ingredients and instructions
           </CardDescription>
         </CardHeader>
-        <CardContent>
-          <div className="whitespace-pre-wrap text-ink">
+        <CardContent className="pt-2">
+          <div className="whitespace-pre-wrap text-ink bg-white/70 p-4 rounded-md border border-aged/20 text-left">
             {originalRecipe}
           </div>
         </CardContent>
       </Card>
 
       <Card className={cn(
-        "border-2",
+        "border-2 shadow-md",
         period.cardClass
       )}>
-        <CardHeader className={period.headerClass}>
-          <CardTitle className={cn("text-parchment", period.fontClass)}>
+        <CardHeader className={cn(period.headerClass, "pb-2")}>
+          <CardTitle className={cn("text-parchment text-xl text-left", period.fontClass)}>
             {period.name} Version
           </CardTitle>
-          <CardDescription className="text-parchment/80">
+          <CardDescription className="text-parchment/80 text-left">
             Transformed for {period.years}
           </CardDescription>
         </CardHeader>
         <CardContent className={cn(
-          "whitespace-pre-wrap",
+          "whitespace-pre-wrap p-4 text-left",
           period.contentClass,
           period.fontClass
         )}>

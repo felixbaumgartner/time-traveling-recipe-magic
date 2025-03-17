@@ -45,6 +45,10 @@
 /* Background fallback */
 body {
   background-color: #f5f0e1;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  font-family: 'EB Garamond', Georgia, serif;
 }
 
 /* Font fallbacks */
@@ -82,4 +86,51 @@ main {
   padding: 1rem;
   margin: 1rem 0;
   border-radius: 0.5rem;
+}
+
+/* Custom design improvements */
+.border-aged {
+  border-color: #d3bc8d;
+}
+
+.recipe-card {
+  border: 1px solid #d3bc8d;
+  background-color: rgba(245, 240, 225, 0.9);
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.recipe-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.08);
+}
+
+.decorative-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #d3bc8d 15%, #d3bc8d 85%, transparent);
+  margin: 1rem auto;
+  width: 100%;
+}
+
+.period-button {
+  transition: all 0.2s ease;
+}
+
+.period-button:hover {
+  transform: translateY(-2px);
+}
+
+.recipe-textarea {
+  background-color: rgba(255, 255, 255, 0.7);
+  border: 1px solid #d3bc8d;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  font-family: inherit;
+  font-size: 1rem;
+  resize: vertical;
+  min-height: 150px;
+  width: 100%;
+  color: #2a231a;
 }

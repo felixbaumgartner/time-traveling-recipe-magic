@@ -1,5 +1,5 @@
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Header from "@/components/Header";
 import RecipeInput from "@/components/RecipeInput";
 import TimePeriodSelector from "@/components/TimePeriodSelector";
@@ -17,7 +17,7 @@ const Index = () => {
   const [bgLoaded, setBgLoaded] = useState(false);
 
   // Preload the background image to ensure it loads properly
-  useState(() => {
+  useEffect(() => {
     const img = new Image();
     img.src = 'https://images.unsplash.com/photo-1587466280419-e014d689a45c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3';
     img.onload = () => {
@@ -27,7 +27,7 @@ const Index = () => {
     img.onerror = () => {
       console.error("Background image failed to load");
     };
-  });
+  }, []);
 
   const handleRecipeSubmit = (recipe: string) => {
     setRecipeText(recipe);
@@ -72,10 +72,10 @@ const Index = () => {
 
   return (
     <div className="min-h-screen" style={backgroundStyle}>
-      <div className="min-h-screen bg-white/30 backdrop-blur-sm">
+      <div className="min-h-screen bg-parchment/80 backdrop-blur-sm">
         <Header />
         
-        <main className="container py-8 space-y-8">
+        <main className="container max-w-6xl mx-auto px-4 md:px-6 py-8 space-y-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-10">
               <h2 className="text-3xl font-bold text-ink mb-4 font-medieval">
@@ -87,7 +87,7 @@ const Index = () => {
               </p>
               
               <div className="flex flex-col items-center justify-center mt-6 gap-4">
-                <div className="flex items-center justify-center gap-2 bg-parchment/70 px-4 py-2 rounded-full shadow-sm">
+                <div className="flex items-center justify-center gap-2 bg-parchment px-4 py-2 rounded-full shadow-sm border border-aged/30">
                   <span className="flex items-center"><ChefHat className="h-5 w-5 mr-1" /> Enter Recipe</span>
                   <ArrowDownIcon className="h-4 w-4" />
                   <span className="flex items-center"><Clock className="h-5 w-5 mr-1" /> Select Era</span>
@@ -134,7 +134,7 @@ const Index = () => {
         </main>
         
         <footer className="bg-ink text-parchment py-4 mt-8">
-          <div className="container text-center">
+          <div className="container max-w-6xl mx-auto px-4 md:px-6 text-center">
             <p className="text-sm">Temporal Recipe Transformer &copy; {new Date().getFullYear()}</p>
           </div>
         </footer>

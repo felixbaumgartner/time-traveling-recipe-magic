@@ -24,18 +24,6 @@ const RandomTransform = ({ disabled, onRandomTransform }: RandomTransformProps) 
       backgroundImage: typeof window !== 'undefined' ? 
         window.getComputedStyle(document.body).backgroundImage : 'N/A'
     });
-    
-    // Check if CSS files are loading properly
-    if (typeof document !== 'undefined') {
-      const styleSheets = Array.from(document.styleSheets);
-      console.log("Number of stylesheets loaded:", styleSheets.length);
-      try {
-        console.log("Style sources:", styleSheets.map(sheet => 
-          sheet.href || 'inline-style').filter(href => href !== 'inline-style'));
-      } catch (e) {
-        console.log("Error inspecting stylesheets:", e);
-      }
-    }
   }, []);
 
   const handleRandomClick = () => {
@@ -59,7 +47,7 @@ const RandomTransform = ({ disabled, onRandomTransform }: RandomTransformProps) 
         onClick={handleRandomClick}
         disabled={disabled}
         variant="outline"
-        className="bg-parchment/80 border-aged hover:bg-parchment text-ink group relative overflow-hidden"
+        className="bg-parchment/80 border-aged hover:bg-parchment text-ink group relative overflow-hidden py-6 px-8"
       >
         <span className="relative z-10 flex items-center gap-2">
           <Wand2 className="h-5 w-5 mr-1 transition-transform group-hover:rotate-12" />

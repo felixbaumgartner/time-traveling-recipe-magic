@@ -55,23 +55,27 @@ Instructions:
   };
 
   return (
-    <Card className="w-full bg-parchment/90 border-aged">
-      <CardHeader>
-        <CardTitle className="text-ink">Enter Your Modern Recipe</CardTitle>
-        <CardDescription className="text-ink/70">
+    <Card className="recipe-card">
+      <CardHeader className="pb-2">
+        <CardTitle className="text-ink text-xl text-left">Enter Your Modern Recipe</CardTitle>
+        <CardDescription className="text-ink/70 text-left">
           Paste a complete recipe with ingredients and instructions
         </CardDescription>
       </CardHeader>
-      <CardContent>
+      <CardContent className="pt-2">
         <Textarea
           placeholder="Enter your recipe here..."
-          className="min-h-[200px] bg-white/80 border-aged text-ink"
+          className="recipe-textarea"
           value={recipeText}
           onChange={(e) => setRecipeText(e.target.value)}
         />
       </CardContent>
-      <CardFooter className="flex justify-between">
-        <Button variant="outline" onClick={handleSampleRecipe} className="border-aged text-ink hover:bg-aged/20">
+      <CardFooter className="flex justify-between pt-4">
+        <Button 
+          variant="outline" 
+          onClick={handleSampleRecipe} 
+          className="border-aged text-ink hover:bg-aged/20"
+        >
           Use Sample Recipe
         </Button>
         <Button 
