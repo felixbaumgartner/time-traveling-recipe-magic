@@ -4,7 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowRightIcon, Sparkles, ChefHat } from "lucide-react";
 
 interface RecipeInputProps {
   onSubmitRecipe: (recipe: string) => void;
@@ -26,7 +26,7 @@ const RecipeInput = ({ onSubmitRecipe }: RecipeInputProps) => {
     
     onSubmitRecipe(recipeText);
     toast({
-      title: "Recipe submitted",
+      title: "✨ Recipe submitted",
       description: "Now select a time period to transform your recipe!",
     });
   };
@@ -56,9 +56,15 @@ Instructions:
   };
 
   return (
-    <Card className="recipe-card">
-      <CardHeader className="pb-2">
-        <CardTitle className="text-ink text-xl text-left">Enter Your Modern Recipe</CardTitle>
+    <Card className="recipe-card shadow-lg glow-card">
+      <CardHeader className="pb-2 bg-gradient-to-r from-parchment to-aged/10">
+        <div className="flex items-center gap-2">
+          <CardTitle className="text-ink text-xl text-left flex items-center">
+            <ChefHat className="h-5 w-5 mr-2 text-medieval-primary" />
+            Enter Your Modern Recipe
+          </CardTitle>
+          <Sparkles className="h-4 w-4 text-victorian-primary" />
+        </div>
         <CardDescription className="text-ink/70 text-left">
           Paste a complete recipe with ingredients and instructions
         </CardDescription>
@@ -66,7 +72,7 @@ Instructions:
       <CardContent className="pt-2">
         <Textarea
           placeholder="Enter your recipe here..."
-          className="recipe-textarea"
+          className="recipe-textarea focus:ring-victorian-primary focus:border-victorian-primary"
           value={recipeText}
           onChange={(e) => setRecipeText(e.target.value)}
           rows={10}
@@ -76,13 +82,13 @@ Instructions:
         <Button 
           variant="outline" 
           onClick={handleSampleRecipe} 
-          className="border-aged text-ink hover:bg-aged/20"
+          className="border-aged text-ink hover:bg-aged/20 hover:text-medieval-primary transition-colors"
         >
           Use Sample Recipe
         </Button>
         <Button 
           onClick={handleSubmit} 
-          className="gradient-button"
+          className="gradient-button sparkle"
           disabled={recipeText.trim().length < 10}
         >
           Continue <ArrowRightIcon className="ml-1 h-4 w-4" />
