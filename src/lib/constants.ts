@@ -44,95 +44,104 @@ export const timePeriods = [
 
 export const sampleTransformations: Record<string, (recipe: string) => string> = {
   "ancient": (recipe) => {
-    return `Honey-Sweetened Flat Cakes
-- 2 cups barley flour, stone-ground
-- Pinch of natron (natural soda ash)
-- Pinch of sea salt
-- 1/2 cup olive oil, fresh-pressed
-- 1/3 cup honey from wild bees
-- 2 eggs from your hen house
-- Water from the river Nile, as needed
-- 1/4 cup dried dates, chopped
-- 1/2 tsp ground cinnamon bark from distant lands
+    return `Honey-Sweetened Barley Cakes
+- 2 parts barley flour, freshly ground
+- 1 part emmer wheat flour
+- Pinch of natron (natural soda)
+- Sea salt from the Mediterranean shores
+- Olive oil from the first pressing
+- Honey from the mountain apiaries
+- Fresh eggs
+- Water from the spring
+- Dried figs, finely chopped
+- Cinnamon bark, ground (a rare spice from eastern trade routes)
 
 Instructions:
-1. Heat thy clay oven with sacred woods
-2. Mix the barley flour with natron and salt in your finest pottery bowl
-3. In separate bronze vessel, combine olive oil with honey
-4. Add thy eggs and beat with wooden implement
-5. Slowly combine wet and dry ingredients
-6. Add chopped dates and precious spices
-7. Form into flat circles with thy hands
-8. Bake on hot stones until the color of desert sand
-9. Offer to the gods before consumption`;
+1. Kindle thy fire with fragrant cedar wood
+2. Combine thy flours, natron and salt in a clay vessel
+3. Work in the olive oil with thy hands until crumbly
+4. Make a hollow in thy mixture and pour in honey
+5. Beat eggs separately and add to thy mixture
+6. Add water slowly until thy dough forms
+7. Work in the chopped figs and cinnamon
+8. Form into small flat rounds
+9. Bake on hot stones until golden as the desert sands`;
   },
   "medieval": (recipe) => {
-    return `Honey Sweetened Spiced Cakes
-- 2 cups coarse ground wheat flour
-- 1 pinch wood ash (leavening)
-- 1 large pinch salt
-- 1/2 cup rendered lard
-- 1/3 cup honey, warmed
-- 2 hen's eggs
-- 1 sennight aged ale (fermentation flavor)
-- 1/4 cup chopped dried figs
-- 1/2 tsp ground cinnamon
-- 1 pinch ground cloves
+    return `Spiced Honey Manchets
+- 2 measures of fine wheat flour, sifted thrice
+- 1 measure of rye flour
+- A goodly pinch of salt from the salt pans
+- Leavening from the ale vat
+- Fat from the rendered lard
+- Honey from thy lord's apiary
+- Fresh eggs from thy henhouse
+- Small beer or whey
+- Currants or dried berries from the market fair
+- Precious spices (cinnamon, nutmeg, cloves) if thy purse allows
 
-Instructions:
-1. Stoke thy hearth fire to moderate heat
-2. Combine thy flour, wood ash, and salt in an earthenware bowl
-3. Beat thy lard with a wooden spoon until softened
-4. Pour in thy warmed honey and continue beating until combined
-5. Add eggs and ale, mix vigorously
-6. Gradually add thy flour mixture
-7. Fold in chopped figs and spices
-8. Form small cakes with thy hands and place on a greased baking stone
-9. Bake near thy hearth fire, turning once, until browned (about the time to recite 2 paternosters)`;
+Method of Preparation:
+1. Prepare thy hearth fire to proper heat
+2. Combine thy flours and salt in a wooden trencher
+3. Make a well and add thy leavening
+4. Pour in warmed honey and work in the fat
+5. Add eggs one by one, mixing thoroughly
+6. Moisten with small beer until proper consistency
+7. Work thy dough upon a floured board until smooth
+8. Fold in thy dried fruits and costly spices
+9. Shape into rounds and score with a cross
+10. Bake in thy brick oven until sounding hollow when tapped`;
   },
   "victorian": (recipe) => {
-    return `Mrs. Wellington's Finest Chocolate Biscuits
-- 2 1/4 cups of the finest wheat flour
+    return `Mrs. Beeton's Superior Drawing Room Biscuits
+- 2¼ pounds of the finest pastry flour, twice-sifted
 - 1 teaspoon of bicarbonate of soda
-- 1 teaspoon of salt from the shores of Brittany
-- 8 ounces of fresh churned butter, softened
-- 3/4 cup of granulated sugar from the West Indies
-- 3/4 cup of demerara sugar, packed
+- ½ teaspoon of cream of tartar
+- 1 teaspoon of sea salt, finely ground
+- 8 ounces of the best fresh butter, softened but not oiled
+- 6 ounces of white caster sugar
+- 4 ounces of Demerara sugar from the West Indies
 - 2 fresh eggs from country hens
-- 2 teaspoons of vanilla extract, imported
-- 8 ounces of finest chocolate, chopped (Mr. Cadbury's preferred)
+- 1 tablespoon of finest vanilla essence
+- 6 ounces of Cadbury's chocolate, cut into small pieces
+- 2 ounces of crystallized ginger, finely diced (optional)
 
-Instructions:
+Method:
 1. Ensure your kitchen range is heated to precisely 375 degrees Fahrenheit
-2. In a Wedgwood mixing bowl, combine the flour, bicarbonate, and salt
-3. In your largest mixing bowl, cream the butter with both sugars until the consistency is that of fine whipped cream
-4. Beat in the eggs one at a time, followed by the vanilla essence
-5. Gradually incorporate the flour mixture, stirring with 50 rotations of the wooden spoon
-6. Fold in the chopped chocolate pieces with great care
-7. Using a silver tablespoon, place rounded portions onto greased baking sheets
-8. Bake in the oven for precisely 9 to 11 minutes until the color of golden honey
-9. Allow to cool upon wire racks before serving with afternoon tea`;
+2. Sift the flour, bicarbonate, cream of tartar and salt together three times
+3. In your best mixing bowl, cream the butter until the consistency of whipped syllabub
+4. Add the sugars gradually, beating continuously for no less than 5 minutes
+5. Beat in the eggs one at a time, followed by the vanilla essence
+6. Incorporate the flour mixture using the lightest possible touch
+7. Fold in the chopped chocolate pieces with a silver spoon
+8. Using two dessert spoons, place neat portions onto greased baking sheets, allowing ample room for spreading
+9. Bake in the middle of the oven for precisely 10 minutes
+10. Allow to cool on the sheets for 2 minutes before transferring to a wire cooling rack
+11. Store in an airtight tin and serve with afternoon tea within 3 days`;
   },
   "future": (recipe) => {
-    return `Protein-Enhanced Moisture-Optimized Cookie Discs
-- 150g hydroponic wheat protein composite
-- 5g sodium bicarbonate (recycled from atmospheric processors)
-- 3g salt (Mars-mined mineral extract)
-- 75g cultivated lipid spread
-- 100g synthesized sucrose
-- 2 lab-cultured egg protein units
-- 10ml vanilla compound
-- 75g moisture-preserved carob nibs
+    return `Protein-Enhanced Nutrient-Optimized Cookie Discs (Version 7.3.1)
+- 145g cultured wheat protein composite (sustainability rating: 93%)
+- 5g sodium bicarbonate (recycled from carbon capture systems)
+- 3g mineral salt complex (Mars-Ceres asteroid belt blend)
+- 70g plant-based lipid matrix (zero deforestation certified)
+- 90g natural sugar alternative (derived from modified algae cultures)
+- 45ml aquafaba protein solution
+- 5ml vanilla flavor compound (lab-grown from original orchid DNA)
+- 100g ethically-sourced cacao nibs (carbon-negative production)
+- 10g adaptogenic mushroom blend (cognitive enhancement profile)
 
-Instructions:
-1. Activate heating unit to 190°C (minimal power draw during non-peak hours)
-2. Combine protein composite with leavening compounds in sterile container
-3. Homogenize lipids and carbohydrates in mixer (set to oxygen-conservation mode)
-4. Incorporate protein units and flavor compounds using hermetically sealed process
-5. Integrate dry components using minimal motion technique (conserving energy)
-6. Add carob nibs (imported during last supply mission)
-7. Dispense uniform 25g portions onto recycled baking sheet
-8. Heat in community-shared oven during your habitat's allocated cooking time slot
-9. Cool in controlled environment to minimize moisture loss`;
+Production Protocol:
+1. Calibrate thermal unit to 190°C (±1°C) using minimal grid energy
+2. Combine protein composite with alkaline agents in compostable mixing vessel
+3. Homogenize lipid matrix with sweetener using sonic emulsification (30 seconds)
+4. Introduce protein solution and flavor compounds in precise ratio
+5. Integrate dry components while monitoring optimal texture parameters
+6. Fold in functional ingredients using minimal-waste technique
+7. Portion into 24g units using infrared sizing grid
+8. Transfer to upcycled carbon-fiber baking surface
+9. Process in thermal unit for 9 minutes 15 seconds
+10. Cool in controlled environment chamber to preserve bioactive properties
+11. Packaging utilizes edible mycelium film with embedded nutritional data`;
   }
 };
