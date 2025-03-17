@@ -6,7 +6,7 @@ import TimePeriodSelector from "@/components/TimePeriodSelector";
 import RandomTransform from "@/components/RandomTransform";
 import { sampleTransformations } from "@/lib/constants";
 import { timePeriods } from "@/lib/constants";
-import { ArrowDownIcon, Clock } from "lucide-react";
+import { ArrowDownIcon, Clock, Sparkles, Timer, History, Hourglass } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/components/ui/use-toast";
 
@@ -16,6 +16,7 @@ const SelectTimePeriod = () => {
   const [recipeText, setRecipeText] = useState<string>("");
   const [selectedPeriod, setSelectedPeriod] = useState<string>("");
   const [bgLoaded, setBgLoaded] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
 
   // Preload the background image to ensure it loads properly
   useEffect(() => {
@@ -41,6 +42,11 @@ const SelectTimePeriod = () => {
     img.onerror = () => {
       console.error("Background image failed to load");
     };
+
+    // Add entrance animation
+    setIsAnimating(true);
+    const timer = setTimeout(() => setIsAnimating(false), 800);
+    return () => clearTimeout(timer);
   }, [navigate, toast]);
 
   const handleTimePeriodSelect = (period: string) => {
@@ -99,41 +105,53 @@ const SelectTimePeriod = () => {
       <div className="min-h-screen bg-parchment/80 backdrop-blur-sm">
         <Header />
         
-        <main className="container max-w-6xl mx-auto px-4 md:px-6 py-8 space-y-8">
+        <main className={`container max-w-6xl mx-auto px-4 md:px-6 py-8 space-y-8 ${isAnimating ? 'animate-fade-in' : ''}`}>
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-10">
-              <h2 className="text-3xl font-bold text-ink mb-4 font-medieval">
-                Select a Time Period
-              </h2>
-              <p className="text-center text-ink/80 max-w-2xl mx-auto">
+              <div className="inline-block mb-4 bg-gradient-to-r from-medieval-primary via-victorian-primary to-future-primary p-1 rounded-lg">
+                <h2 className="text-3xl font-bold text-white mb-0 font-medieval bg-ink p-4 rounded-md">
+                  <span className="flex items-center justify-center gap-2">
+                    <History className="h-8 w-8 text-future-primary animate-pulse" />
+                    Time Travel Your Recipe
+                    <Hourglass className="h-8 w-8 text-victorian-primary animate-pulse" />
+                  </span>
+                </h2>
+              </div>
+              <p className="text-center text-ink/80 max-w-2xl mx-auto text-lg">
                 Choose a historical era to transform your recipe, or try a random transformation!
               </p>
               
               <div className="flex flex-col items-center justify-center mt-6 gap-4">
-                <div className="flex items-center justify-center gap-2 bg-parchment px-4 py-2 rounded-full shadow-sm border border-aged/30">
-                  <span className="flex items-center font-bold text-ink">
-                    <Clock className="h-5 w-5 mr-1" /> Step 2: Select Time Period
+                <div className="flex items-center justify-center gap-2 bg-gradient-to-r from-medieval-primary/20 via-victorian-primary/20 to-future-primary/20 px-6 py-3 rounded-full shadow-md border border-aged/30 animate-pulse">
+                  <span className="flex items-center font-bold text-ink text-lg">
+                    <Clock className="h-6 w-6 mr-2 text-medieval-primary" /> Step 2: Select Time Period
                   </span>
                 </div>
               </div>
             </div>
             
-            <div className="space-y-6 max-w-3xl mx-auto">
-              <TimePeriodSelector 
-                onSelectTimePeriod={handleTimePeriodSelect}
-                disabled={!recipeText}
-              />
+            <div className="space-y-8 max-w-3xl mx-auto">
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-medieval-primary via-victorian-primary to-future-primary rounded-lg blur opacity-25"></div>
+                <TimePeriodSelector 
+                  onSelectTimePeriod={handleTimePeriodSelect}
+                  disabled={!recipeText}
+                />
+              </div>
               
-              <RandomTransform 
-                onRandomTransform={handleRandomTransform}
-                disabled={!recipeText}
-              />
+              <div className="relative">
+                <div className="absolute -inset-1 bg-gradient-to-r from-future-primary via-victorian-primary to-medieval-primary rounded-lg blur opacity-25"></div>
+                <RandomTransform 
+                  onRandomTransform={handleRandomTransform}
+                  disabled={!recipeText}
+                />
+              </div>
 
               <div className="flex justify-center mt-8">
                 <Button 
                   onClick={handleBackClick}
                   variant="outline" 
-                  className="border-aged text-ink hover:bg-aged/20"
+                  className="border-aged text-ink hover:bg-aged/20 transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
                 >
                   Back to Recipe Input
                 </Button>
@@ -142,9 +160,13 @@ const SelectTimePeriod = () => {
           </div>
         </main>
         
-        <footer className="bg-ink text-parchment py-4 mt-8">
+        <footer className="bg-gradient-to-r from-medieval-primary via-victorian-primary to-future-primary text-parchment py-6 mt-8">
           <div className="container max-w-6xl mx-auto px-4 md:px-6 text-center">
-            <p className="text-sm">Temporal Recipe Transformer &copy; {new Date().getFullYear()}</p>
+            <p className="text-md flex items-center justify-center gap-2">
+              <Sparkles className="h-5 w-5 text-parchment" />
+              Temporal Recipe Transformer &copy; {new Date().getFullYear()}
+              <Sparkles className="h-5 w-5 text-parchment" />
+            </p>
           </div>
         </footer>
       </div>
