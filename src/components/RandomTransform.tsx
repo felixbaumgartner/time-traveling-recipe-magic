@@ -3,6 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Dices, Wand2 } from "lucide-react";
 import { useToast } from "@/components/ui/use-toast";
 import { timePeriods } from "@/lib/constants";
+import { useEffect } from "react";
 
 interface RandomTransformProps {
   disabled: boolean;
@@ -11,6 +12,31 @@ interface RandomTransformProps {
 
 const RandomTransform = ({ disabled, onRandomTransform }: RandomTransformProps) => {
   const { toast } = useToast();
+  
+  useEffect(() => {
+    // Debug logs to help identify styling issues
+    console.log("RandomTransform component mounted");
+    console.log("CSS classes loaded:", {
+      tailwindLoaded: typeof document !== 'undefined' && 
+        document.querySelector('style[data-id="tailwind"]') !== null,
+      bodyClasses: typeof document !== 'undefined' ? 
+        document.body.classList.toString() : 'N/A',
+      backgroundImage: typeof window !== 'undefined' ? 
+        window.getComputedStyle(document.body).backgroundImage : 'N/A'
+    });
+    
+    // Check if CSS files are loading properly
+    if (typeof document !== 'undefined') {
+      const styleSheets = Array.from(document.styleSheets);
+      console.log("Number of stylesheets loaded:", styleSheets.length);
+      try {
+        console.log("Style sources:", styleSheets.map(sheet => 
+          sheet.href || 'inline-style').filter(href => href !== 'inline-style'));
+      } catch (e) {
+        console.log("Error inspecting stylesheets:", e);
+      }
+    }
+  }, []);
 
   const handleRandomClick = () => {
     onRandomTransform();
