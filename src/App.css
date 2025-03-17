@@ -13,10 +13,10 @@
   transition: filter 300ms;
 }
 .logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+  filter: drop-shadow(0 0 2em #8B5CF6aa);
 }
 .logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+  filter: drop-shadow(0 0 2em #0EA5E9aa);
 }
 
 @keyframes logo-spin {
@@ -44,7 +44,8 @@
 
 /* Background fallback */
 body {
-  background-color: #f5f0e1;
+  background-color: #fff9e8;
+  background-image: linear-gradient(60deg, #f8c37d 0%, #fff9e8 100%);
   margin: 0;
   padding: 0;
   min-height: 100vh;
@@ -66,7 +67,7 @@ body {
 
 /* Force background colors and text colors */
 .bg-parchment {
-  background-color: #f5f0e1 !important;
+  background-color: #fff9e8 !important;
 }
 
 .text-ink {
@@ -90,42 +91,43 @@ main {
 
 /* Custom design improvements */
 .border-aged {
-  border-color: #d3bc8d;
+  border-color: #f0a742;
 }
 
 .recipe-card {
-  border: 1px solid #d3bc8d;
-  background-color: rgba(245, 240, 225, 0.9);
-  border-radius: 0.5rem;
+  border: 1px solid #f0a742;
+  background-color: rgba(255, 249, 232, 0.9);
+  border-radius: 0.75rem;
   padding: 1.5rem;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 15px rgba(224, 138, 40, 0.15);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .recipe-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.08);
+  box-shadow: 0 8px 20px rgba(224, 138, 40, 0.2);
 }
 
 .decorative-divider {
-  height: 1px;
-  background: linear-gradient(90deg, transparent, #d3bc8d 15%, #d3bc8d 85%, transparent);
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #f0a742 15%, #f0a742 85%, transparent);
   margin: 1rem auto;
   width: 100%;
 }
 
 .period-button {
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .period-button:hover {
-  transform: translateY(-2px);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 .recipe-textarea {
-  background-color: rgba(255, 255, 255, 0.7);
-  border: 1px solid #d3bc8d;
-  border-radius: 0.5rem;
+  background-color: rgba(255, 255, 255, 0.85);
+  border: 1px solid #f0a742;
+  border-radius: 0.75rem;
   padding: 1rem;
   font-family: inherit;
   font-size: 1rem;
@@ -133,4 +135,31 @@ main {
   min-height: 150px;
   width: 100%;
   color: #2a231a;
+}
+
+/* Add gradient buttons */
+.gradient-button {
+  background: linear-gradient(45deg, #8B5CF6, #D946EF);
+  color: white;
+  border: none;
+  position: relative;
+  z-index: 1;
+}
+
+.gradient-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, #D946EF, #8B5CF6);
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  opacity: 0;
+  border-radius: inherit;
+}
+
+.gradient-button:hover::before {
+  opacity: 1;
 }

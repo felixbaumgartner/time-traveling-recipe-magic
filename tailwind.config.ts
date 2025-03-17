@@ -1,4 +1,3 @@
-
 import type { Config } from "tailwindcss";
 
 export default {
@@ -63,12 +62,11 @@ export default {
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
 				},
-                // Custom colors for our app
-                parchment: '#f5f0e1',
+                parchment: '#fff9e8',
                 aged: {
-                    light: '#e8d8c3',
-                    DEFAULT: '#d3bc8d',
-                    dark: '#b39b6a',
+                    light: '#f8c37d',
+                    DEFAULT: '#f0a742',
+                    dark: '#e08a28',
                 },
                 ink: {
                     light: '#3a3124',
@@ -76,16 +74,16 @@ export default {
                     dark: '#1a150f',
                 },
                 medieval: {
-                    primary: '#8b4513',
-                    secondary: '#654321',
+                    primary: '#8B5CF6',
+                    secondary: '#7C3AED',
                 },
                 victorian: {
-                    primary: '#800020',
-                    secondary: '#540015',
+                    primary: '#D946EF',
+                    secondary: '#C026D3',
                 },
                 future: {
-                    primary: '#3a86ff',
-                    secondary: '#0077b6',
+                    primary: '#0EA5E9',
+                    secondary: '#0284C7',
                 },
 			},
 			borderRadius: {
