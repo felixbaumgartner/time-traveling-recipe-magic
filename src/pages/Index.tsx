@@ -14,6 +14,20 @@ const Index = () => {
   const [selectedPeriod, setSelectedPeriod] = useState<string>("");
   const [transformedRecipe, setTransformedRecipe] = useState<string>("");
   const [showTransformation, setShowTransformation] = useState(false);
+  const [bgLoaded, setBgLoaded] = useState(false);
+
+  // Preload the background image to ensure it loads properly
+  useState(() => {
+    const img = new Image();
+    img.src = 'https://images.unsplash.com/photo-1587466280419-e014d689a45c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3';
+    img.onload = () => {
+      console.log("Background image loaded successfully");
+      setBgLoaded(true);
+    };
+    img.onerror = () => {
+      console.error("Background image failed to load");
+    };
+  });
 
   const handleRecipeSubmit = (recipe: string) => {
     setRecipeText(recipe);
@@ -48,8 +62,16 @@ const Index = () => {
     setShowTransformation(true);
   };
 
+  const backgroundStyle = {
+    backgroundImage: "url('https://images.unsplash.com/photo-1587466280419-e014d689a45c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3')",
+    backgroundRepeat: "no-repeat",
+    backgroundSize: "cover",
+    backgroundPosition: "center",
+    backgroundAttachment: "fixed",
+  };
+
   return (
-    <div className="min-h-screen bg-[url('https://images.unsplash.com/photo-1587466280419-e014d689a45c?w=800&auto=format&fit=crop&q=60&ixlib=rb-4.0.3')] bg-cover bg-fixed">
+    <div className="min-h-screen" style={backgroundStyle}>
       <div className="min-h-screen bg-white/30 backdrop-blur-sm">
         <Header />
         

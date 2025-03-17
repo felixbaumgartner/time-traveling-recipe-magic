@@ -1,3 +1,4 @@
+
 #root {
   max-width: 1280px;
   margin: 0 auto;
@@ -39,4 +40,46 @@
 
 .read-the-docs {
   color: #888;
+}
+
+/* Background fallback */
+body {
+  background-color: #f5f0e1;
+}
+
+/* Font fallbacks */
+.font-medieval {
+  font-family: 'EB Garamond', Georgia, serif;
+}
+
+.font-victorian {
+  font-family: 'Playfair Display', Georgia, serif;
+}
+
+.font-future {
+  font-family: 'Space Mono', monospace, sans-serif;
+}
+
+/* Force background colors and text colors */
+.bg-parchment {
+  background-color: #f5f0e1 !important;
+}
+
+.text-ink {
+  color: #2a231a !important;
+}
+
+/* Apply default styling to ensure basic appearance if Tailwind fails */
+button {
+  padding: 0.5rem 1rem;
+  border-radius: 0.25rem;
+  cursor: pointer;
+}
+
+/* Make sure content is visible even if styles fail */
+main {
+  background-color: rgba(255, 255, 255, 0.85);
+  padding: 1rem;
+  margin: 1rem 0;
+  border-radius: 0.5rem;
 }
