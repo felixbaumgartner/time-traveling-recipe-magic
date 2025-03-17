@@ -1,4 +1,5 @@
-import { parseRecipe, transformRecipe } from "./recipeTransformer";
+import { parseRecipe } from "./recipeParser";
+import { transformRecipe } from "./recipeTransformer";
 
 export const timePeriods = [
   {
