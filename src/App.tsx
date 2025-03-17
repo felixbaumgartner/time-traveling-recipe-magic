@@ -5,6 +5,8 @@ import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
+import SelectTimePeriod from "./pages/SelectTimePeriod";
+import RecipeResult from "./pages/RecipeResult";
 import NotFound from "./pages/NotFound";
 import { useEffect } from "react";
 import "./App.css"; // Ensure CSS is explicitly imported
@@ -42,6 +44,8 @@ const App = () => {
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<Index />} />
+            <Route path="/select-period" element={<SelectTimePeriod />} />
+            <Route path="/result" element={<RecipeResult />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>

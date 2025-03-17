@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { useToast } from "@/components/ui/use-toast";
+import { ArrowRightIcon } from "lucide-react";
 
 interface RecipeInputProps {
   onSubmitRecipe: (recipe: string) => void;
@@ -68,6 +69,7 @@ Instructions:
           className="recipe-textarea"
           value={recipeText}
           onChange={(e) => setRecipeText(e.target.value)}
+          rows={10}
         />
       </CardContent>
       <CardFooter className="flex justify-between pt-4">
@@ -80,10 +82,10 @@ Instructions:
         </Button>
         <Button 
           onClick={handleSubmit} 
-          className="bg-ink text-parchment hover:bg-ink/80"
+          className="gradient-button"
           disabled={recipeText.trim().length < 10}
         >
-          Transform Recipe
+          Continue <ArrowRightIcon className="ml-1 h-4 w-4" />
         </Button>
       </CardFooter>
     </Card>

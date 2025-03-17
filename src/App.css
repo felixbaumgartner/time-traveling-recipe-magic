@@ -1,165 +1,136 @@
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* ... keep existing code */
+
+/* Add page transition animations */
+.page-enter {
+  opacity: 0;
+  transform: translateY(20px);
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #8B5CF6aa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #0EA5E9aa);
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 400ms, transform 400ms;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.page-exit {
+  opacity: 1;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.page-exit-active {
+  opacity: 0;
+  transition: opacity 300ms;
 }
 
-.card {
-  padding: 2em;
+/* Add animated progress indicator */
+.step-indicator {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem auto;
+  max-width: 600px;
 }
 
-.read-the-docs {
-  color: #888;
-}
-
-/* Background fallback */
-body {
-  background-color: #fff9e8;
-  background-image: linear-gradient(60deg, #f8c37d 0%, #fff9e8 100%);
-  margin: 0;
-  padding: 0;
-  min-height: 100vh;
-  font-family: 'EB Garamond', Georgia, serif;
-}
-
-/* Font fallbacks */
-.font-medieval {
-  font-family: 'EB Garamond', Georgia, serif;
-}
-
-.font-victorian {
-  font-family: 'Playfair Display', Georgia, serif;
-}
-
-.font-future {
-  font-family: 'Space Mono', monospace, sans-serif;
-}
-
-/* Force background colors and text colors */
-.bg-parchment {
-  background-color: #fff9e8 !important;
-}
-
-.text-ink {
-  color: #2a231a !important;
-}
-
-/* Apply default styling to ensure basic appearance if Tailwind fails */
-button {
-  padding: 0.5rem 1rem;
-  border-radius: 0.25rem;
-  cursor: pointer;
-}
-
-/* Make sure content is visible even if styles fail */
-main {
-  background-color: rgba(255, 255, 255, 0.85);
-  padding: 1rem;
-  margin: 1rem 0;
-  border-radius: 0.5rem;
-}
-
-/* Custom design improvements */
-.border-aged {
-  border-color: #f0a742;
-}
-
-.recipe-card {
-  border: 1px solid #f0a742;
-  background-color: rgba(255, 249, 232, 0.9);
-  border-radius: 0.75rem;
-  padding: 1.5rem;
-  box-shadow: 0 4px 15px rgba(224, 138, 40, 0.15);
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.recipe-card:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(224, 138, 40, 0.2);
-}
-
-.decorative-divider {
+.step-indicator::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #f0a742 15%, #f0a742 85%, transparent);
-  margin: 1rem auto;
-  width: 100%;
+  background-color: rgba(240, 167, 66, 0.5);
+  transform: translateY(-50%);
+  z-index: 0;
 }
 
-.period-button {
+.step-indicator-progress {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #8B5CF6, #D946EF);
+  transform: translateY(-50%);
+  z-index: 1;
+  transition: width 0.5s ease;
+}
+
+.step-item {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.step-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: #fff9e8;
+  border: 2px solid rgba(240, 167, 66, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.5rem;
   transition: all 0.3s ease;
 }
 
-.period-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.recipe-textarea {
-  background-color: rgba(255, 255, 255, 0.85);
-  border: 1px solid #f0a742;
-  border-radius: 0.75rem;
-  padding: 1rem;
-  font-family: inherit;
-  font-size: 1rem;
-  resize: vertical;
-  min-height: 150px;
-  width: 100%;
-  color: #2a231a;
-}
-
-/* Add gradient buttons */
-.gradient-button {
+.step-circle.active {
   background: linear-gradient(45deg, #8B5CF6, #D946EF);
+  border-color: transparent;
   color: white;
-  border: none;
-  position: relative;
-  z-index: 1;
+  transform: scale(1.2);
 }
 
-.gradient-button::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(45deg, #D946EF, #8B5CF6);
-  z-index: -1;
-  transition: opacity 0.3s ease;
-  opacity: 0;
-  border-radius: inherit;
+.step-circle.completed {
+  background-color: #8B5CF6;
+  border-color: #8B5CF6;
+  color: white;
 }
 
-.gradient-button:hover::before {
-  opacity: 1;
+.step-label {
+  font-size: 0.875rem;
+  color: #2a231a;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.step-label.active {
+  font-weight: bold;
+  color: #8B5CF6;
+}
+
+/* Enhance recipe display */
+.recipe-comparison {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+@media (min-width: 768px) {
+  .recipe-comparison {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.recipe-comparison-card {
+  border-radius: 1rem;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.recipe-comparison-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.recipe-comparison-card.modern {
+  background-color: rgba(255, 249, 232, 0.95);
+  border: 1px solid rgba(240, 167, 66, 0.3);
+}
+
+.recipe-comparison-card.historical {
+  background-color: rgba(139, 92, 246, 0.1);
+  border: 1px solid rgba(139, 92, 246, 0.3);
 }
