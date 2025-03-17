@@ -1,3 +1,4 @@
+
 import type { Config } from "tailwindcss";
 
 export default {
@@ -61,7 +62,31 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+                // Custom colors for our app
+                parchment: '#f5f0e1',
+                aged: {
+                    light: '#e8d8c3',
+                    DEFAULT: '#d3bc8d',
+                    dark: '#b39b6a',
+                },
+                ink: {
+                    light: '#3a3124',
+                    DEFAULT: '#2a231a',
+                    dark: '#1a150f',
+                },
+                medieval: {
+                    primary: '#8b4513',
+                    secondary: '#654321',
+                },
+                victorian: {
+                    primary: '#800020',
+                    secondary: '#540015',
+                },
+                future: {
+                    primary: '#3a86ff',
+                    secondary: '#0077b6',
+                },
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -84,12 +109,35 @@ export default {
 					to: {
 						height: '0'
 					}
-				}
+				},
+                'fade-in': {
+                    '0%': { 
+                        opacity: '0',
+                    },
+                    '100%': { 
+                        opacity: '1',
+                    },
+                },
+                'timeline-grow': {
+                    '0%': { 
+                        transform: 'scaleX(0)',
+                    },
+                    '100%': { 
+                        transform: 'scaleX(1)',
+                    },
+                },
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
-			}
+				'accordion-up': 'accordion-up 0.2s ease-out',
+                'fade-in': 'fade-in 0.5s ease-out',
+                'timeline-grow': 'timeline-grow 0.8s ease-out',
+			},
+            fontFamily: {
+                'medieval': ['"EB Garamond"', 'serif'],
+                'victorian': ['"Playfair Display"', 'serif'],
+                'future': ['"Space Mono"', 'monospace'],
+            },
 		}
 	},
 	plugins: [require("tailwindcss-animate")],
