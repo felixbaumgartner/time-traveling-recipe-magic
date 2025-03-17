@@ -4,8 +4,9 @@ import Header from "@/components/Header";
 import RecipeInput from "@/components/RecipeInput";
 import TimePeriodSelector from "@/components/TimePeriodSelector";
 import RecipeDisplay from "@/components/RecipeDisplay";
+import RandomTransform from "@/components/RandomTransform";
 import { sampleTransformations } from "@/lib/constants";
-import { Separator } from "@/components/ui/separator";
+import { timePeriods } from "@/lib/constants";
 import { ArrowDownIcon, ChefHat, Clock, Scroll } from "lucide-react";
 
 const Index = () => {
@@ -29,6 +30,22 @@ const Index = () => {
       setTransformedRecipe(transform(recipeText));
       setShowTransformation(true);
     }
+  };
+  
+  const handleRandomTransform = () => {
+    if (!recipeText) return;
+    
+    // Get random time period
+    const availablePeriods = timePeriods.map(period => period.id);
+    const randomIndex = Math.floor(Math.random() * availablePeriods.length);
+    const randomPeriod = availablePeriods[randomIndex];
+    
+    setSelectedPeriod(randomPeriod);
+    
+    // Transform the recipe based on random time period
+    const transform = sampleTransformations[randomPeriod] || ((r) => r);
+    setTransformedRecipe(transform(recipeText));
+    setShowTransformation(true);
   };
 
   return (
@@ -68,6 +85,11 @@ const Index = () => {
                   </div>
                   <TimePeriodSelector 
                     onSelectTimePeriod={handleTimePeriodSelect}
+                    disabled={!recipeText}
+                  />
+                  
+                  <RandomTransform 
+                    onRandomTransform={handleRandomTransform}
                     disabled={!recipeText}
                   />
                 </>
